@@ -1,0 +1,12 @@
+#1/bin/bash
+cd ~
+cd Desktop
+git clone https://github.com/qaitautomation/Test_Repository.git
+cd Test_Repository
+gedit >"Hello"
+git status
+git add .
+git commit -m"First Commit"
+git push http://qaitautomation:Nikhil-101@github.com/qaitautomation/Test_Repository.git master
+
+pwd
