@@ -9,7 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 
 public class GitAutomation {
-	static WebDriver driver;
+	public static WebDriver driver;
 	loginPage lp;
 	addRepository arp;
 	landingPage ldp;
@@ -19,6 +19,7 @@ public class GitAutomation {
 	Validate va;
 	ShellScript ssc;
 	String title;
+	addReadMe arm;
 /*	commandLineAutomation ce;*/
 	@BeforeTest
 	  public void beforeClass() {
@@ -52,7 +53,7 @@ public class GitAutomation {
 		  System.out.println(title);
   }
   
-  @Test(dependsOnMethods = { "Login PageTest" })
+  @Test(dependsOnMethods = { "loginPageTest" })
   public void addRepositoryTest(){
 	  mp = new mainPage(driver);
 	  mp.addRepository();
@@ -93,13 +94,20 @@ public class GitAutomation {
   }
   
   @Test(dependsOnMethods ={"shellScriptingTest"})
-  public void validate() {
+  public void validate() throws InterruptedException {
+	  Thread.sleep(2000);
 	  driver.get("https://github.com/qaitautomation/Test_Repository");
 	  va= new Validate(driver);
 	  va.validateCode();
 	  va.validateCommit();	  
   }
   
+  @Test(dependsOnMethods ={"validate"})
+  public void addReadmeTest(){
+	  arm = new addReadMe(driver);
+	  arm.createReadMe();
+	  arm.addText();
+  }
 
   @AfterTest
   public void afterClass() {
