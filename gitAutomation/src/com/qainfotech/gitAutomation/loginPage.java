@@ -9,10 +9,13 @@ import org.openqa.selenium.support.PageFactory;
 
 public class loginPage {
  WebDriver driver;
- String user,pass;
+ public String user,pass;
 	public loginPage(WebDriver driver) {
 		this.driver= driver;
 		PageFactory.initElements(driver, this);
+	}
+	public loginPage() {
+		
 	}
 	@FindBy(id="login_field")
 	WebElement userName;
