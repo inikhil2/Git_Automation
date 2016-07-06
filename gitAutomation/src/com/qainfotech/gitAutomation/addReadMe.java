@@ -29,6 +29,7 @@ public class addReadMe {
 	WebElement submit;
 	
 	public void addText(){
+		textArea.clear();
 		textArea.sendKeys("Adding data to readme in the test repository.");
 		textArea.sendKeys(Keys.PAGE_DOWN);
 		submit.click();
