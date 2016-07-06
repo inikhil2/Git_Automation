@@ -11,7 +11,7 @@ public static void main(String a[]){
 	try {
 		GitHub github = GitHub.connectUsingPassword("qaitautomation", "Nikhil-101");
 		
-		GHRepository repo=github.createRepository("Test1", "Test", "abcd", true);
+		GHRepository repo=github.createRepository("Test2", "Test", "abcd", true);
 		System.out.println(repo.getUrl());
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
